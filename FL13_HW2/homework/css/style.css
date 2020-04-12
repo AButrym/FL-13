@@ -1,0 +1,210 @@
+@media print {
+    .tm-sidebar, .tm-team-img, #about,
+    .blocks .tm-content-box,
+    section:last-of-type {
+        display: none;
+    }
+
+    body {
+        background: white;
+        margin: 0;
+        padding: 0;
+        font-weight: 400;
+    }
+
+    .padding-medium {
+        width: 50%;
+        padding: 0;
+    }
+    .tm-content-box {
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    p {
+        font-style: italic;
+        text-align: center;
+    }
+
+    .tm-section-title,
+    h2 {
+        color: #444 !important;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        padding-top: 0;
+    }
+
+    .heading li {
+        list-style: none;
+    }
+
+    .heading li:nth-of-type(even) {
+        text-align: right;
+    }
+}
+
+@media screen {
+    .tm-nav-item:hover {
+        background-color: lightskyblue;
+    }
+
+    .tm-nav-item:hover .tm-nav-item-link {
+        color: #fff;
+    }
+
+    .tm-banner {
+        background-image: linear-gradient(to top, lightskyblue, burlywood);
+    }
+
+    .tm-banner-inner {
+        background-color: #fff;
+    }
+
+    @keyframes rotate45 {
+          0% {transform: rotate(45deg);}
+        100% {transform: rotate(0);}
+    }
+
+    .tm-banner-text {
+        letter-spacing: 0.25em;
+        word-spacing: 0.25em;
+        text-shadow: 0 3px 0 #76cdd7,
+                     0 1ex 2px #76cdd7;
+        animation-name: rotate45;
+        animation-duration: 5s;
+    }
+
+    section, nav, .tm-content-header {
+        box-shadow: 0 0 10px 0 rgba(61, 55, 61, 0.7);
+    }
+
+    .flex-2-col {
+        display: flex;
+    }
+
+    .flex-item {
+        flex: 0 1 auto;
+    }
+
+    .tm-team-description-container {
+        order: 2;
+        align-self: center;
+    }
+
+    .tm-box-bg-title:hover {
+        font-weight: bold;
+        color: white;
+        background-color: lightskyblue;
+    }
+
+    section::before {
+        content: "";
+        width: 45px;
+        height: 45px;
+        background-image: linear-gradient(to bottom right,
+        lightskyblue 50%, transparent 50%);
+    }
+
+    h2.tm-section-title {
+        text-align: center;
+    }
+
+    .tm-section-description {
+        font-style: italic;
+        line-height: 1.6;
+    }
+
+    .tm-section-description {
+        text-indent: 20px;
+    }
+    .heading h2 {
+        color: lightskyblue;
+        text-align: center;
+    }
+
+    .heading li {
+        list-style: decimal-leading-zero;
+    }
+
+    .heading a:hover {
+        color: red;
+        font-weight: bold;
+    }
+
+    .heading a:hover::before {
+        content: ">";
+    }
+
+    .heading a.text::after {
+        content: "New";
+        color: red;
+        vertical-align: super;
+        font-weight: bold;
+        font-variant: titling-caps;
+        font-size: x-small;
+    }
+
+    .box-work {
+        border: 10px solid lightskyblue;
+    }
+
+    .box-work:nth-of-type(even) {
+        color: white;
+        background: lightskyblue;
+    }
+
+    .box-work:nth-of-type(odd) {
+        border-color: white;
+    }
+
+    .box-work p {
+        font-style: italic;
+    }
+
+    .box-work p::first-letter {
+        font-weight: bold;
+    }
+
+    #contact h2 {
+        text-align: right;
+    }
+
+    input.form-control {
+        border: none;
+        border-bottom: 1px solid lightskyblue;
+    }
+
+    .form-control:focus {
+        background-color: lightseagreen;
+        color: white;
+    }
+
+    .submit-btn {
+        float: right;
+        background-color: #fff;
+        border-color: lightskyblue;
+        border-radius: 0;
+        border-width: 2px;
+        font-weight: lighter;
+        color: lightskyblue;
+        width: 120px;
+        height: 50px;
+    }
+
+    .submit-btn:focus,
+    .submit-btn:hover {
+        background-color: lightseagreen;
+        border: none;
+    }
+
+    #contact_subject {
+        background: right no-repeat url("../img/email-icon.png");
+        background-size: 30px 30px;
+        padding-right: 35px;
+    }
+
+    #contact_subject:focus {
+        background-color: lightseagreen;
+    }
+}
