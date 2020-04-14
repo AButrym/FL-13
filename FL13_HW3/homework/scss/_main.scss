@@ -1,29 +1,3 @@
-//font-family: 'Source Sans Pro', sans-serif;
-//font-family: 'Hind', sans-serif;
-//font-family: 'Fresca', sans-serif;
-//
-//_main.scss:
-//body {
-//    background: $contentBackground;
-//}
-//main {
-//      margin: 0 auto;
-//      width: 960px;
-//}
-//...
-//_variables1.scss:
-//$contentBackground: #fff;
-//...
-//_variables2.scss:
-//$contentBackground: #660;
-//
-//•	All required css rules and scss mixins should be written in _main.scss and variables should be  defined in _variables1.scss and _variables2.scss files
-//•	Do not change files scss/style1.scss and scss/style2.scss. They already import all necessary partials
-//•	scss file should use a nesting syntax
-//•	you should use mixin for styling links and buttons
-//•	use at least one @extend rule
-//•	use at least one map
-
 %center {
   margin: 0 auto;
   text-align: center;
