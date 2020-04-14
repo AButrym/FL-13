@@ -1,5 +1,41 @@
+//font-family: 'Source Sans Pro', sans-serif;
+//font-family: 'Hind', sans-serif;
+//font-family: 'Fresca', sans-serif;
+//
+//_main.scss:
+//body {
+//    background: $contentBackground;
+//}
+//main {
+//      margin: 0 auto;
+//      width: 960px;
+//}
+//...
+//_variables1.scss:
+//$contentBackground: #fff;
+//...
+//_variables2.scss:
+//$contentBackground: #660;
+//
+//•	All required css rules and scss mixins should be written in _main.scss and variables should be  defined in _variables1.scss and _variables2.scss files
+//•	Do not change files scss/style1.scss and scss/style2.scss. They already import all necessary partials
+//•	scss file should use a nesting syntax
+//•	you should use mixin for styling links and buttons
+//•	use at least one @extend rule
+//•	use at least one map
+
 %center {
   margin: 0 auto;
+  text-align: center;
+}
+
+%button {
+  font: 600 18px/18px 'Source Sans Pro', sans-serif;
+  color: white;
+  background-color: $joinUsButtonColor;
+  border: none;
+  width: 143px;
+  height: 48px;
   text-align: center;
 }
 
@@ -84,14 +120,8 @@ body {
 }
 
 .header_button {
+  @extend %button;
   margin-top: 60px;
-  font: 600 18px/18px 'Source Sans Pro', sans-serif;
-  color: white;
-  background-color: $joinUsButtonColor;
-  border: none;
-  width: 143px;
-  height: 48px;
-  text-align: center;
 }
 
 .login {
@@ -164,21 +194,31 @@ body {
   display: block;
   margin-top: 20px;
   color: #ccc;
-  font: 400 16px/22px $secondaryFontFamily;
+  font: 400 16px/22px 'Source Sans Pro', sans-serif;
 }
 
 .section_banner {
+  text-align: left;
   margin: 66px auto 0;
-  width: 960px;
-  height: 145px;
+  width: 760px;
+  height: 45px;
+  padding: 50px 100px;
   border-radius: 5px;
   position: relative;
   top: 75px;
   left: -30px;
   background-image: linear-gradient(to right, $gradientLeft, $gradientRight);
 }
+.section_banner_text_wrap {
+  float: left;
+}
+.section_banner_button {
+  @extend %button;
+  float: right;
+}
 
 footer {
   background-color: $footerBackground;
-  height: 300px;
+  height: 100px;
+  padding-top: 150px;
 }
