@@ -1,0 +1,210 @@
+//font-family: 'Source Sans Pro', sans-serif;
+//font-family: 'Hind', sans-serif;
+//font-family: 'Fresca', sans-serif;
+//
+//_main.scss:
+//body {
+//    background: $contentBackground;
+//}
+//main {
+//      margin: 0 auto;
+//      width: 960px;
+//}
+//...
+//_variables1.scss:
+//$contentBackground: #fff;
+//...
+//_variables2.scss:
+//$contentBackground: #660;
+//
+//•	All required css rules and scss mixins should be written in _main.scss and variables should be  defined in _variables1.scss and _variables2.scss files
+//•	Do not change files scss/style1.scss and scss/style2.scss. They already import all necessary partials
+//•	scss file should use a nesting syntax
+//•	you should use mixin for styling links and buttons
+//•	use at least one @extend rule
+//•	use at least one map
+
+%center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: $contentBackground;
+}
+
+.header {
+  padding: 10px 0;
+  background: {
+    image: $backgroundImage;
+    repeat: no-repeat;
+    size: cover;
+    position: left -145px;
+  }
+  z-index: -10;
+  height: 700px;
+  border-bottom-right-radius: 600px 275px;
+}
+
+.header-wrap {
+  width: 650px;
+  height: 650px;
+  margin: {
+    left: 150px;
+  }
+  padding-top: 10px;
+}
+
+.landing-logo {
+  position: relative;
+  text-align: center;
+  color: $mainTextColor;
+  padding-left: 60px;
+  width: 70px;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  p {
+    font: 700 24px/32px $secondaryFontFamily;
+  }
+
+  span {
+    display: block;
+    font: 600 10px/10px $secondaryFontFamily;
+  }
+}
+
+.header_heading {
+  position: relative;
+  margin-top: 75px;
+  font: 900 72px/72px 'Source Sans Pro', sans-serif;
+  color: $mainTextColor;
+  z-index: 0;
+
+  &::before {
+    display: inline-block;
+    position: absolute;
+    top: 94px;
+    content: "";
+    z-index: -1;
+    background-color: $highlightColor;
+    width: 303px;
+    height: 50px;
+  }
+}
+
+.header_text {
+  margin-top: 60px;
+  font: 300 16px/24px $secondaryFontFamily;
+  color: $mainTextColor;
+  letter-spacing: 0.2q;
+}
+
+.header_button {
+  margin-top: 60px;
+  font: 600 18px/18px 'Source Sans Pro', sans-serif;
+  color: white;
+  background-color: $joinUsButtonColor;
+  border: none;
+  width: 143px;
+  height: 48px;
+  text-align: center;
+}
+
+.login {
+  font: 400 20px/20px 'Source Sans Pro', sans-serif;
+  margin-left: 150px;
+  color: white;
+}
+
+.section {
+  @extend %center;
+  width: 900px;
+  padding-top: 40px;
+  z-index: -10;
+}
+
+.section_text {
+  margin-bottom: 42px;
+  font: 600 42px/42px 'Source Sans Pro', sans-serif;
+  color: $mainTextColor;
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    position: absolute;
+    right: 252px;
+    top: -10px;
+    content: "";
+    width: 190px;
+    height: 50px;
+    z-index: -1;
+    background-color: $highlightColor;
+  }
+}
+
+.section_card {
+  border-radius: 5px;
+  padding: 20px;
+  margin: 25px 0;
+  background-color: $footerBackground;
+  height: 235px;
+
+  img {
+    float: left;
+    height: 235px;
+    border-radius: 5px;
+  }
+}
+
+.section_card_right_container {
+  float: right;
+  width: 500px;
+  height: 235px;
+}
+
+.section_card_heading {
+  margin: 30px 0;
+  font: 600 24px/24px 'Source Sans Pro', sans-serif;
+  color: white;
+}
+
+.section_card_text {
+  margin: 0 auto;
+  width: 400px;
+  text-align: justify;
+  color: #ccc;
+  font: 400 16px/22px $secondaryFontFamily;
+}
+
+.section_link {
+  display: block;
+  margin-top: 20px;
+  color: #ccc;
+  font: 400 16px/22px $secondaryFontFamily;
+}
+
+.section_banner {
+  margin: 66px auto 0;
+  width: 960px;
+  height: 145px;
+  border-radius: 5px;
+  position: relative;
+  top: 75px;
+  left: -30px;
+  background-image: linear-gradient(to right, $gradientLeft, $gradientRight);
+}
+
+footer {
+  background-color: $footerBackground;
+  height: 300px;
+}
