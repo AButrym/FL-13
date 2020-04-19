@@ -1,0 +1,191 @@
+/*
+TASK
+    You need to create a HTML page template according to provided design.
+    Use HTML5 semantic elements.
+    Minimum size of screen when web page shouldn’t be “broken” is more and equal 900px.
+    Hero section with header should occupy all height of the browser window.
+    All required images can be found in img folder.
+RESTRICTIONS
+•	Do not use any javascript or css framework for this hometask.
+•	No requirements for browser support (should correct work in Google Chrome last version).
+•	All distances between block set by yourself (tips: you can use Pixelperfect browser addon but it isn’t requirement)
+BEFORE SUBMIT
+•	Read requirements and compare to your homework result
+•	Format the code (remove unnecessary lines of code)
+•	Remove all unnecessary files that you might have included by mistake
+•	Validate HTML(https://validator.w3.org/ ) and CSS (https://jigsaw.w3.org/css-validator/)
+SUBMIT
+•	The folder should be uploaded to github repository “FL-13” into master branch.
+*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+
+body {
+    min-width: 900px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Merriweather', serif;
+    color: #777;
+    background-color: white;
+}
+
+header {
+    width: auto;
+}
+
+nav {
+    height: 85px;
+    padding: 30px 10vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav div {
+    /*float: left;*/
+    /*margin: 20px 0 20px ;*/
+    font-size: 24px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: black;
+    letter-spacing: 0.2ex;
+    word-spacing: 0.2ex;
+}
+
+nav ul {
+    /*float: right;*/
+    /*margin: 25px 0;*/
+    font-family: 'Lora', serif;
+    font-size: 16px;
+}
+nav li {
+    list-style: none;
+    display: inline-block;
+    height: 25px;
+    font-size: 18px;
+    letter-spacing: 0.2ex;
+    line-height: 25px;
+    width: 100px;
+    /*margin: 0 50px;*/
+    color: #777777;
+}
+
+nav a:link {
+    color: #777777;
+}
+
+nav a:hover {
+    color: #bfba55;
+    transition-duration: 0.5s;
+}
+
+.hero {
+    display: grid;
+    place-items: center;
+    width: auto;
+    height: calc(100vh - 85px);
+    position: relative;
+}
+.hero:before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url("../img/home-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(40%) contrast(110%);
+}
+.hero-inside {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero h1 {
+    font-weight: bold;
+    color: white;
+}
+@media only screen and (min-width: 1080px) {
+    .hero h1 {
+        font-size: 72px;
+        line-height: 72px;
+    }
+}
+@media only screen and (max-width: 1079px) {
+    .hero h1 {
+        min-width: 900px;
+        font-size: 60px;
+        line-height: 60px;
+    }
+}
+.hero-epam {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    color: #bfba55;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    word-spacing: 0.2em;
+}
+
+.button {
+    display: block;
+    border-radius: 50px;
+    background: white;
+    text-align: center;
+}
+
+.header-button {
+    width: 160px;
+    height: 45px;
+    text-transform: uppercase;
+    color: #777777;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.2ex;
+    padding: 17px 0;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    outline: 2px solid red;
+}
+
+article {
+    min-width: 800px;
+    outline: 3px solid blue;
+    font-family: 'Lora', serif;
+}
+article h2 {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 28px;
+    color: black;
+    margin: 30px 0 15px;
+}
+
+article img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+.readstory {
+    width: 190px;
+    height: 50px;
+    border: 2px solid lightgrey;
+    color: #777777;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 17px;
+    padding-top: 14px;
+}
