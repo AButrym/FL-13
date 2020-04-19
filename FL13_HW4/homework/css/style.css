@@ -1,22 +1,3 @@
-/*
-TASK
-    You need to create a HTML page template according to provided design.
-    Use HTML5 semantic elements.
-    Minimum size of screen when web page shouldn’t be “broken” is more and equal 900px.
-    Hero section with header should occupy all height of the browser window.
-    All required images can be found in img folder.
-RESTRICTIONS
-•	Do not use any javascript or css framework for this hometask.
-•	No requirements for browser support (should correct work in Google Chrome last version).
-•	All distances between block set by yourself (tips: you can use Pixelperfect browser addon but it isn’t requirement)
-BEFORE SUBMIT
-•	Read requirements and compare to your homework result
-•	Format the code (remove unnecessary lines of code)
-•	Remove all unnecessary files that you might have included by mistake
-•	Validate HTML(https://validator.w3.org/ ) and CSS (https://jigsaw.w3.org/css-validator/)
-SUBMIT
-•	The folder should be uploaded to github repository “FL-13” into master branch.
-*/
 * {
     padding: 0;
     margin: 0;
@@ -177,6 +158,10 @@ article img {
     max-width: 100%;
     width: auto;
     height: auto;
+}
+
+article span[data-comments]::before {
+    content: attr(data-comments);
 }
 
 .readstory {
