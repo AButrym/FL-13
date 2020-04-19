@@ -28,8 +28,6 @@ nav {
 }
 
 nav div {
-    /*float: left;*/
-    /*margin: 20px 0 20px ;*/
     font-size: 24px;
     line-height: 24px;
     text-transform: uppercase;
@@ -39,8 +37,6 @@ nav div {
 }
 
 nav ul {
-    /*float: right;*/
-    /*margin: 25px 0;*/
     font-family: 'Lora', serif;
     font-size: 16px;
 }
@@ -52,7 +48,6 @@ nav li {
     letter-spacing: 0.2ex;
     line-height: 25px;
     width: 100px;
-    /*margin: 0 50px;*/
     color: #777777;
 }
 
