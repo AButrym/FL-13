@@ -88,28 +88,34 @@ main:after {
 .posts article:hover {
   cursor: pointer;
 }
+
 .posts img:not(.last-post):hover {
   filter: opacity(50%);
   transition: 0.3s;
 }
+
 .posts .description:hover {
   color: #666;
 }
+
 .description {
   padding: 0 25px;
   line-height: 1.9;
 }
+
 .description h2 {
   font-weight: 300;
   font-size: 42px;
   line-height: 50px;
 }
+
 .posts time {
   text-align: center;
   padding: 20px;
   font-size: 24px;
   font-weight: 300;
 }
+
 .posts time b {
   font-size: 50px;
   font-weight: 300;
@@ -140,16 +146,18 @@ main:after {
   text-align: right;
 }
 
-.posts article:not(.last-post) img {
+.posts img:not(.last-post) {
   width: 50%;
 }
 
 .last-post img {
   width: 100%;
 }
+
 .last-post {
   position: relative;
 }
+
 .last-post .description {
   color: white;
   position: absolute;
@@ -208,9 +216,6 @@ footer {
 }
 
 @media only screen and (max-width: 1400px) {
-  .container {
-    padding: 0 10px
-  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -238,8 +243,101 @@ footer {
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen
+and (max-width: 1400px) {
+  .container {
+    padding: 0 10px
+  }
+
+  header nav {
+    padding-right: 10px;
+  }
+  header nav a {
+    width: 110px;
+  }
+
+  .posts article img:not(.last-post) {
+    width: 100%;
+  }
+
+  .posts {
+    float: left;
+    width: calc(66% - 20px);
+  }
+
+  aside {
+    float: right;
+    width: 34%;
+  }
+
+  .posts article:not(.last-post) {
+    display: block;
+  }
+
+  .posts article div.description {
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  main section.posts article time {
+    display: block;
+    text-align: center;
+    padding: 0 0 20px;
+    width: 150px;
+    margin: -15px auto 0;
+    font-size: 20px;
+    font-weight: 100;
+  }
+
+  .posts time b {
+    font-size: 40px;
+    font-weight: 100;
+  }
+
+  .last-post img {
+    height: 380px;
+    object-fit: cover;
+  }
+
+  .last-post .description {
+    left: 0;
+  }
+}
+
+@media only screen
+and (max-width: 768px) {
   .container {
     padding: 0 2px;
+  }
+
+  .last-post img {
+    height: 380px;
+    object-fit: cover;
+  }
+
+  .posts h2 {
+    text-align: center;
+  }
+
+  .posts {
+    float: none;
+    width: 100%;
+  }
+
+  aside {
+    float: none;
+    width: 100%;
+  }
+}
+
+@media only screen
+and (max-width: 480px) {
+  .last-post img {
+    height: 450px;
+  }
+
+  section.posts article h2 {
+    font-size: 32px;
+    line-height: 40px;
   }
 }
