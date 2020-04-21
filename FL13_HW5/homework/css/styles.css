@@ -1,31 +1,191 @@
-/*
- * Feel free to change name of colors if you need it
- * Feel free to add new colors if you need it
- */
-
-:root {
-  --bg-color--dark: #0b192f;
-  --bg-color--medium: #162b4d;
-  --text--color: #484848;
-  --link: #fff;
-  --link--hover: #b8b8b8;
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: roboto;
+  font-family: roboto, sans-serif;
+  background-color: #0B192F;
 }
 
-.post-1 {
-	background: #F3D250;
-}
-.post-2 {
-	background: #8D8741;
-}
-.post-3 {
-	background: #659DBD;
-}
-.post-4 {
-	background: #DAAD86;
+a:hover {
+  color: #b8b8b8;
 }
 
-/* Your styles go here */
+.container {
+  width: 100%;
+  padding: 0 35px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: #162b4d;
+  height: 95px;
+  width: 100%;
+}
+
+.logo {
+  font-size: 45px;
+  line-height: 95px;
+  font-weight: 100;
+  padding-left: 25px;
+}
+
+.logo span {
+  color: #6A1C4F;
+}
+
+header nav {
+  padding-right: 50px;
+}
+
+header nav a {
+  display: inline-block;
+  text-align: center;
+  width: 120px;
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 22px;
+  height: 95px;
+  padding: 35px 0;
+}
+
+header nav a:hover {
+  background-color: rgb(68, 85, 112);
+  transition: 0.5s;
+}
+
+main {
+  color: #484848;
+  margin: 25px 0;
+}
+
+main img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.posts {
+  float: left;
+  width: calc(75% - 25px);
+  outline: 2px solid red; /******************************************/
+}
+
+aside {
+  float: right;
+  width: 25%;
+}
+
+main:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.posts img:hover {
+  filter: opacity(50%);
+}
+
+.posts article:not(.last-post):nth-of-type(4n+1) {
+  background-color: #F3D250;
+}
+
+.posts article:not(.last-post):nth-of-type(4n+2) {
+  background-color: #8D8741;
+}
+
+.posts article:not(.last-post):nth-of-type(4n+3) {
+  background-color: #659DBD;
+}
+
+.posts article:not(.last-post):nth-of-type(4n) {
+  background-color: #DAAD86;
+}
+
+
+.news article {
+  background-color: white;
+  border-bottom: 1px solid transparent;
+  margin-bottom: 25px;
+}
+
+.news h2 {
+  font-size: 32px;
+  font-weight: 300;
+  padding: 0 25px;
+}
+
+.news-description {
+  padding: 0 25px;
+  line-height: 1.6;
+}
+
+.news a.button {
+  display: block;
+  height: 40px;
+  width: 135px;
+  color: black;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 10px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid black;
+  margin: 25px;
+}
+
+.news a.button:hover {
+  border: none;
+  border-bottom: 2px solid black;
+  transition: 0.3s;
+}
+
+footer {
+  background-color: #162B4D;
+  color: gray;
+  font-size: 14px;
+  line-height: 1.1;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 10px 20px;
+  clear: both;
+}
+
+@media only screen and (max-width: 1400px) {
+  .container { padding: 0 10px}
+}
+
+@media only screen and (max-width: 768px) {
+  .container { padding: 0 5px; }
+
+  header {
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 200px;
+    font-size: 20px;
+  }
+
+  header nav {
+    display: none;
+  }
+
+  header .logo::before {
+    content: "☰";
+    font-size: 24px;
+    text-align: center;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 0 2px;
+  }
+}
