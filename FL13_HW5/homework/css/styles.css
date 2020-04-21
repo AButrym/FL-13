@@ -72,7 +72,6 @@ main img {
 .posts {
   float: left;
   width: calc(75% - 25px);
-  outline: 2px solid red; /******************************************/
 }
 
 aside {
@@ -86,8 +85,34 @@ main:after {
   display: table;
 }
 
-.posts img:hover {
+.posts article:hover {
+  cursor: pointer;
+}
+.posts img:not(.last-post):hover {
   filter: opacity(50%);
+  transition: 0.3s;
+}
+.posts .description:hover {
+  color: #666;
+}
+.description {
+  padding: 0 25px;
+  line-height: 1.9;
+}
+.description h2 {
+  font-weight: 300;
+  font-size: 42px;
+  line-height: 50px;
+}
+.posts time {
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: 300;
+}
+.posts time b {
+  font-size: 50px;
+  font-weight: 300;
 }
 
 .posts article:not(.last-post):nth-of-type(4n+1) {
@@ -106,6 +131,31 @@ main:after {
   background-color: #DAAD86;
 }
 
+.posts article:not(.last-post) {
+  display: flex;
+}
+
+.posts article:not(.last-post):nth-of-type(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.posts article:not(.last-post) img {
+  width: 50%;
+}
+
+.last-post img {
+  width: 100%;
+}
+.last-post {
+  position: relative;
+}
+.last-post .description {
+  color: white;
+  position: absolute;
+  bottom: 50px;
+  left: 25px;
+}
 
 .news article {
   background-color: white;
@@ -158,11 +208,15 @@ footer {
 }
 
 @media only screen and (max-width: 1400px) {
-  .container { padding: 0 10px}
+  .container {
+    padding: 0 10px
+  }
 }
 
 @media only screen and (max-width: 768px) {
-  .container { padding: 0 5px; }
+  .container {
+    padding: 0 5px;
+  }
 
   header {
     flex-direction: column;
