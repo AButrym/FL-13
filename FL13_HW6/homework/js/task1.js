@@ -1,9 +1,9 @@
-const DIGITS_AFTER_COMA = 2;
+const FRACTIONAL_DIGITS = 2;
 const HUNDRED = 100;
 
 function formatMoney(number) {
     if (typeof number === 'number') {
-        return Number.isInteger(number) ? number : number.toFixed(DIGITS_AFTER_COMA);
+        return Number.isInteger(number) ? number : number.toFixed(FRACTIONAL_DIGITS);
     }
 }
 
