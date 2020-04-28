@@ -4,7 +4,8 @@ const USERS = new Map([
 ]);
 
 const MIN_NUMBER_OF_LETTERS_IN_LOGIN = 4;
-const EVENING_TIME = 20;
+const DAY_TIME_FROM = 8;
+const DAY_TIME_TO = 20;
 
 main();
 
@@ -27,7 +28,7 @@ function main() {
         return;
     }
     const currentTimeHours = new Date().getHours();
-    if (currentTimeHours < EVENING_TIME) {
+    if (DAY_TIME_FROM <= currentTimeHours && currentTimeHours < DAY_TIME_TO) {
         alert(`Good day, dear ${userName}!`)
     } else {
         alert(`Good evening, dear ${userName}!`);
