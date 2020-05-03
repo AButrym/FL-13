@@ -1,3 +1,3 @@
-const isBigger = (a, b) => +a > +b;
+const isBigger = (a, b) => a > b;
 
-console.log(isBigger(1,0));
+console.log(isBigger(1, 0));
