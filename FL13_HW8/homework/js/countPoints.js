@@ -1,10 +1,11 @@
-const isBigger = (a, b) => +a > +b;
+const isBigger = (a, b) => a > b;
+const stringToNumber = parseFloat;
 
 function countPoints(matches) {
     let result = 0;
     for (let match of matches) {
-        const [we, they] = match.split(':');
-        result += 3 * isBigger(we, they) + 1 * (+we === +they);
+        const [we, they] = match.split(':').map(stringToNumber);
+        result += 3 * isBigger(we, they) + 1 * (we === they);
     }
     return result;
 }
