@@ -1,6 +1,8 @@
 function convert(...args) {
     // convert numbers to strings and vice versa
-    return args.map(i => i === +i ? '' + i : +i);
+    const result = [];
+    executeforEach(args, i => result.push(i === +i ? '' + i : +i));
+    return result;
 }
 
 function executeforEach(arr, func) {
