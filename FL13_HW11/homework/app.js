@@ -1,53 +1,53 @@
 const data = [
-  {
-    'folder': true,
-    'title': 'Pictures',
-    'children': [
-      {
-        'title': 'logo.png'
-      },
-      {
+    {
         'folder': true,
-        'title': 'Vacations',
+        'title': 'Pictures',
         'children': [
-          {
-            'title': 'spain.jpeg'
-          }
+            {
+                'title': 'logo.png'
+            },
+            {
+                'folder': true,
+                'title': 'Vacations',
+                'children': [
+                    {
+                        'title': 'spain.jpeg'
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  },
-  {
-    'folder': true,
-    'title': 'Desktop',
-    'children': [
-      {
+    },
+    {
         'folder': true,
-        'title': 'screenshots',
-        'children': null
-      }
-    ]
-  },
-  {
-    'folder': true,
-    'title': 'Downloads',
-    'children': [
-      {
+        'title': 'Desktop',
+        'children': [
+            {
+                'folder': true,
+                'title': 'screenshots',
+                'children': null
+            }
+        ]
+    },
+    {
         'folder': true,
-        'title': 'JS',
-        'children': null
-      },
-      {
-        'title': 'nvm-setup.exe'
-      },
-      {
-        'title': 'node.exe'
-      }
-    ]
-  },
-  {
-    'title': 'credentials.txt'
-  }
+        'title': 'Downloads',
+        'children': [
+            {
+                'folder': true,
+                'title': 'JS',
+                'children': null
+            },
+            {
+                'title': 'nvm-setup.exe'
+            },
+            {
+                'title': 'node.exe'
+            }
+        ]
+    },
+    {
+        'title': 'credentials.txt'
+    }
 ];
 
 const rootNode = document.getElementById('root');
@@ -93,11 +93,27 @@ function appendIcon(el, isFolder = false) {
         event.stopPropagation();
         el.classList.add('hover');
         selectedItem = el;
-    }
+    };
     el.onmouseout = event => {
         event.stopPropagation();
         el.classList.remove('hover');
         selectedItem = null;
+    };
+    if (isFolder) {
+        el.addEventListener('click', event => {
+            event.stopPropagation();
+            if (el.classList.toggle('opened')) {
+                el.replaceChild(iconFolderOpen.cloneNode(true),
+                    el.children[0]);
+            } else {
+                el.replaceChild(iconFolder.cloneNode(true),
+                    el.children[0]);
+            }
+        }, false);
+    } else {
+        el.onclick = event => {
+            event.stopPropagation();
+        };
     }
 }
 
@@ -110,7 +126,11 @@ function createUList(data) {
         if (el['folder']) {
             if (!el['children']) {
                 ul.appendChild(li);
-                ul.appendChild(folderIsEmpty.cloneNode(true));
+                const empty = folderIsEmpty.cloneNode(true);
+                empty.onclick = event => {
+                    event.stopPropagation();
+                };
+                ul.appendChild(empty);
             } else {
                 li.appendChild(createUList(el.children));
                 ul.appendChild(li);
@@ -141,7 +161,8 @@ rootNode.addEventListener('contextmenu', event => {
 }, false);
 
 document.addEventListener('click', event => {
-    if (event.button !== 2) {
+    const right_button = 2;
+    if (event.button !== right_button) {
         menu.classList.remove('active');
     }
 }, false);
