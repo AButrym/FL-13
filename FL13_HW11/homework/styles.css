@@ -20,12 +20,12 @@ ul {
   background-color: #fff;
 }
 
-.folder > ul {
-  display: none;
+li.opened > ul {
+  display: block;
 }
 
-.folder-open > ul {
-  display: block;
+li:not(.opened) > ul {
+  display: none;
 }
 
 .material-icons {
