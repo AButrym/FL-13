@@ -1,0 +1,42 @@
+#root {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px 10px 20px 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px grey;
+  font-family: Arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.hover {
+  background-color: #eee;
+}
+
+.hover ul {
+  background-color: #fff;
+}
+
+.folder > ul {
+  display: none;
+}
+
+.folder-open > ul {
+  display: block;
+}
+
+.material-icons {
+  color: gold;
+  vertical-align: -0.2em;
+}
+
+.file {
+  color: #bbbbbb;
+}
+
+.empty {
+  font-style: italic;
+  font-family: Georgia, serif;
+}
