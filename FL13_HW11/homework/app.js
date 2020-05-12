@@ -65,9 +65,11 @@ const iconFile = icon.cloneNode(false);
 iconFile.classList.add('file');
 iconFile.appendChild(document.createTextNode('insert_drive_file'));
 
-const folderIsEmpty = document.createElement('li');
+const folderIsEmpty = document.createElement('ul');
 folderIsEmpty.classList.add('empty');
-folderIsEmpty.appendChild(document.createTextNode('Folder is empty'));
+const folderIsEmptyLi = document.createElement('li');
+folderIsEmptyLi.appendChild(document.createTextNode('Folder is empty'));
+folderIsEmpty.appendChild(folderIsEmptyLi);
 
 const menu = document.createElement('ul');
 menu.classList.add('right-click-menu');
@@ -85,7 +87,7 @@ menu.appendChild(liDelete);
 
 let selectedItem = null;
 
-function appendIcon(el, isFolder = false) {
+function initLi(el, isFolder = false) {
     el.appendChild(isFolder
         ? iconFolder.cloneNode(true)
         : iconFile.cloneNode(true));
@@ -121,23 +123,20 @@ function createUList(data) {
     let ul = document.createElement('ul');
     for (let el of data) {
         let li = document.createElement('li');
-        appendIcon(li, el['folder']);
+        initLi(li, el['folder']);
         li.appendChild(document.createTextNode(el['title']));
         if (el['folder']) {
             if (!el['children']) {
-                ul.appendChild(li);
                 const empty = folderIsEmpty.cloneNode(true);
                 empty.onclick = event => {
                     event.stopPropagation();
                 };
-                ul.appendChild(empty);
+                li.appendChild(empty);
             } else {
                 li.appendChild(createUList(el.children));
-                ul.appendChild(li);
             }
-        } else {
-            ul.appendChild(li);
         }
+        ul.appendChild(li);
     }
     ul.onmouseover = event => {
         event.stopPropagation();
