@@ -13,6 +13,7 @@ ul {
 
 .hover {
   background-color: #eee;
+  cursor: pointer;
 }
 
 .hover ul {
@@ -39,4 +40,25 @@ ul {
 .empty {
   font-style: italic;
   font-family: Georgia, serif;
+}
+
+.right-click-menu {
+  margin: 0;
+  padding: 5px;
+  line-height: 1.5;
+  position: fixed;
+  list-style: none;
+  background: #f0f0f0;
+  box-shadow: 2px 2px 5px grey;
+  border-radius: 2px;
+  display: none;
+}
+
+.right-click-menu.active {
+  display: block;
+}
+
+.right-click-menu.bound li:hover {
+  background-color: #bbbbbb;
+  cursor: pointer;
 }
