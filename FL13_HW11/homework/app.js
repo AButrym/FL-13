@@ -69,17 +69,35 @@ const folderIsEmpty = document.createElement('li');
 folderIsEmpty.classList.add('empty');
 folderIsEmpty.appendChild(document.createTextNode('Folder is empty'));
 
-function appendIcon(el, isFolder=false) {
+const menu = document.createElement('ul');
+menu.classList.add('right-click-menu');
+
+const liRename = document.createElement('li');
+liRename.setAttribute('id', 'rename');
+liRename.appendChild(document.createTextNode('Rename'));
+
+const liDelete = document.createElement('li');
+liDelete.setAttribute('id', 'delete');
+liDelete.appendChild(document.createTextNode('Delete item'));
+
+menu.appendChild(liRename);
+menu.appendChild(liDelete);
+
+let selectedItem = null;
+
+function appendIcon(el, isFolder = false) {
     el.appendChild(isFolder
         ? iconFolder.cloneNode(true)
         : iconFile.cloneNode(true));
-    el.onmouseover = function (ev) {
-        ev.stopPropagation();
+    el.onmouseover = event => {
+        event.stopPropagation();
         el.classList.add('hover');
+        selectedItem = el;
     }
-    el.onmouseout = function (ev) {
-        ev.stopPropagation();
+    el.onmouseout = event => {
+        event.stopPropagation();
         el.classList.remove('hover');
+        selectedItem = null;
     }
 }
 
@@ -101,7 +119,29 @@ function createUList(data) {
             ul.appendChild(li);
         }
     }
+    ul.onmouseover = event => {
+        event.stopPropagation();
+    }
     return ul;
 }
 
 rootNode.appendChild(createUList(data));
+rootNode.appendChild(menu);
+
+rootNode.addEventListener('contextmenu', event => {
+    event.preventDefault();
+    menu.style.top = `${event.clientY}px`;
+    menu.style.left = `${event.clientX}px`;
+    menu.classList.add('active');
+    if (selectedItem) {
+        menu.classList.add('bound');
+    } else {
+        menu.classList.remove('bound');
+    }
+}, false);
+
+document.addEventListener('click', event => {
+    if (event.button !== 2) {
+        menu.classList.remove('active');
+    }
+}, false);
