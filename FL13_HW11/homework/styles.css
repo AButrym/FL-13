@@ -37,9 +37,11 @@ li:not(.opened) > ul {
   color: #bbbbbb;
 }
 
-.empty {
+ul.empty {
   font-style: italic;
   font-family: Georgia, serif;
+  cursor: auto;
+  margin-left: -2.2em;
 }
 
 .right-click-menu {
