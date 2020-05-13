@@ -52,6 +52,10 @@ const data = [
 
 const rootNode = document.getElementById('root');
 
+const stopPropagation = event => {
+    event.stopPropagation();
+};
+
 const icon = document.createElement('span');
 icon.classList.add('material-icons');
 
@@ -86,6 +90,7 @@ menu.appendChild(liRename);
 menu.appendChild(liDelete);
 
 let selectedItem = null;
+let capturedItem = null;
 
 function initLi(el, isFolder = false) {
     el.appendChild(isFolder
@@ -113,9 +118,7 @@ function initLi(el, isFolder = false) {
             }
         }, false);
     } else {
-        el.onclick = event => {
-            event.stopPropagation();
-        };
+        el.onclick = stopPropagation;
     }
 }
 
@@ -128,9 +131,7 @@ function createUList(data) {
         if (el['folder']) {
             if (!el['children']) {
                 const empty = folderIsEmpty.cloneNode(true);
-                empty.onclick = event => {
-                    event.stopPropagation();
-                };
+                empty.onclick = stopPropagation;
                 li.appendChild(empty);
             } else {
                 li.appendChild(createUList(el.children));
@@ -138,9 +139,7 @@ function createUList(data) {
         }
         ul.appendChild(li);
     }
-    ul.onmouseover = event => {
-        event.stopPropagation();
-    }
+    ul.onmouseover = stopPropagation;
     return ul;
 }
 
@@ -154,8 +153,10 @@ rootNode.addEventListener('contextmenu', event => {
     menu.classList.add('active');
     if (selectedItem) {
         menu.classList.add('bound');
+        capturedItem = selectedItem;
     } else {
         menu.classList.remove('bound');
+        capturedItem = null;
     }
 }, false);
 
@@ -164,4 +165,10 @@ document.addEventListener('click', event => {
     if (event.button !== right_button) {
         menu.classList.remove('active');
     }
+}, false);
+
+liDelete.addEventListener('click', event => {
+    event.stopPropagation();
+    capturedItem.parentElement.removeChild(capturedItem);
+    menu.classList.remove('active');
 }, false);
