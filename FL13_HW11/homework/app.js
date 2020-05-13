@@ -169,6 +169,12 @@ document.addEventListener('click', event => {
 
 liDelete.addEventListener('click', event => {
     event.stopPropagation();
-    capturedItem.parentElement.removeChild(capturedItem);
+    const parent = capturedItem.parentElement;
+    parent.removeChild(capturedItem);
+    if (!parent.childElementCount) {
+        const empty = folderIsEmpty.cloneNode(true);
+        empty.onclick = stopPropagation;
+        parent.appendChild(empty);
+    }
     menu.classList.remove('active');
 }, false);
