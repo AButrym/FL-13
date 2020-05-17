@@ -1,0 +1,13 @@
+#root {
+  max-width: 1024px;
+  margin: auto;
+}
+
+.book-list {
+  width: 50%;
+  float: left;
+}
+.book-preview {
+  width: 50%;
+  float: left;
+}
