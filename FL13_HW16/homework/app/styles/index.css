@@ -1,0 +1,54 @@
+td, th, table {
+  border-collapse: collapse;
+  border: none;
+  padding: 0;
+}
+
+table {
+  margin-top: 20px;
+}
+
+td:first-of-type {
+  min-width: 6em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#updateMessage {
+  display: inline-block;
+  border: 2px solid lightcyan;
+  border-radius: 5px;
+  padding: 5px;
+  animation: pulse 0.7s infinite;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 10px lightskyblue;
+  }
+  to {
+    box-shadow: 0 0 0 lightskyblue;
+  }
+}
+
+input, button {
+  border: 1px solid #bbb;
+  padding: 2px 3px;
+}
+
+input {
+  width: 12em;
+}
+
+button {
+  background-image: linear-gradient(to top, #fff, #efeeef, #fff);
+}
+
+button:hover,
+button:focus {
+  color: blue;
+  text-shadow: lightblue 0 0 5px;
+  border-color: darkblue;
+}
